@@ -188,8 +188,10 @@ class YoutubePlayerController extends ValueNotifier<YoutubePlayerValue> {
 
   /// Change the video's playback Quality.
   /// Quality can be one of [YoutubeQuality].
-  void changePlaybackQuality(YoutubeQuality quality) =>
-      _callMethod('setQuality(${getStringFromQuality(quality)})');
+  void setPlaybackQuality(YoutubeQuality quality) {
+    print('Changing playback quality to: ${getStringFromQuality(quality)}');
+    return _callMethod('setQuality(${getStringFromQuality(quality)})');
+  }
 
   /// Loads the video as per the [videoId] provided.
   void load(String videoId, {int startAt = 0, int? endAt}) {
