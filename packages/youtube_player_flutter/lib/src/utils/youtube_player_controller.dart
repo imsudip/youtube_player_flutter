@@ -5,7 +5,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-
+import '../enums/playback_quality.dart';
 import '../enums/playback_rate.dart';
 import '../enums/player_state.dart';
 import '../utils/youtube_meta_data.dart';
@@ -185,6 +185,11 @@ class YoutubePlayerController extends ValueNotifier<YoutubePlayerValue> {
 
   /// Pauses the video.
   void pause() => _callMethod('pause()');
+
+  /// Change the video's playback Quality.
+  /// Quality can be one of [YoutubeQuality].
+  void changePlaybackQuality(YoutubeQuality quality) =>
+      _callMethod('setPlaybackQuality(${getStringFromQuality(quality)})');
 
   /// Loads the video as per the [videoId] provided.
   void load(String videoId, {int startAt = 0, int? endAt}) {

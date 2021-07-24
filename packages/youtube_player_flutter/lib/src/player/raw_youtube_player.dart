@@ -277,7 +277,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                         'rel': 0,
                         'showinfo': 0,
                         'iv_load_policy': 3,
-                        'modestbranding': 1,
+                        'modestbranding': 0,
                         'cc_load_policy': ${boolean(value: controller!.flags.enableCaption)},
                         'cc_lang_pref': '${controller!.flags.captionLanguage}',
                         'autoplay': ${boolean(value: controller!.flags.autoPlay)},
@@ -328,7 +328,12 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 player.pauseVideo();
                 return '';
             }
-
+            function setPlaybackQUality(quality) {
+                player.pauseVideo();
+                player.setPlaybackQuality(quality);
+                player.playVideo();
+                return '';
+            }
             function loadById(loadSettings) {
                 player.loadVideoById(loadSettings);
                 return '';
