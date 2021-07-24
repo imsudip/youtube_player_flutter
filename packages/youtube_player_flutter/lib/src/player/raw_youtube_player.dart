@@ -328,7 +328,7 @@ class _RawYoutubePlayerState extends State<RawYoutubePlayer>
                 player.pauseVideo();
                 return '';
             }
-            function setPlaybackQUality(quality) {
+            function setQuality(quality) {
                 player.pauseVideo();
                 player.setPlaybackQuality(quality);
                 player.playVideo();
